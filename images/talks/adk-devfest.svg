@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181b"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <linearGradient id="accent4" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#EA4335"/>
+      <stop offset="40%" stop-color="#FBBC04"/>
+      <stop offset="70%" stop-color="#34A853"/>
+      <stop offset="100%" stop-color="#4285F4"/>
+    </linearGradient>
+    <radialGradient id="glow4" cx="80%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#EA4335" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="transparent" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="340" fill="url(#bg4)"/>
+  <rect width="600" height="340" fill="url(#glow4)"/>
+
+  <rect x="40" y="40" width="150" height="32" rx="16" fill="#27272a" stroke="#EA4335" stroke-width="1.5"/>
+  <circle cx="56" cy="56" r="5" fill="#EA4335"/>
+  <text x="70" y="61" fill="#fecaca" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="700" letter-spacing="1">DEVFEST 2025</text>
+
+  <g transform="translate(450, 110)">
+    <circle cx="50" cy="50" r="45" fill="#27272a" stroke="#FBBC04" stroke-width="2" opacity="0.8"/>
+    <text x="50" y="62" font-size="40" text-anchor="middle">🧠</text>
+  </g>
+
+  <text x="40" y="130" fill="url(#accent4)" font-family="sans-serif" font-size="27" font-weight="800">Production-Grade AI Agents</text>
+  <text x="40" y="165" fill="#f8fafc" font-family="sans-serif" font-size="20" font-weight="600">Building with Agent Development Kit</text>
+  <text x="40" y="200" fill="#94a3b8" font-family="sans-serif" font-size="14">State Management • Tool Declarations • Cloud Run</text>
+
+  <rect x="0" y="295" width="600" height="45" fill="#090d16" opacity="0.9"/>
+  <text x="40" y="323" fill="#cbd5e1" font-family="sans-serif" font-size="13" font-weight="600">Sanket Bisne</text>
+  <text x="135" y="323" fill="#64748b" font-family="sans-serif" font-size="13">• Google Developer Expert (GCP)</text>
+  <text x="540" y="323" fill="#EA4335" font-family="sans-serif" font-size="13" font-weight="700" text-anchor="end">DevFest</text>
+</svg>
