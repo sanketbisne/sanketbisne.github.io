@@ -19,6 +19,8 @@
 
   /* Typography Colors */
   --text-main: #f3f4f6;
+  --text-primary: #f3f4f6;
+  --text-secondary: #d1d5db;
   --text-muted: #9ca3af;
   --text-dim: #6b7280;
   --text-inverse: #080b11;
@@ -49,6 +51,7 @@
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 20px;
+  --radius-xl: 24px;
   --radius-full: 9999px;
 
   --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1520,8 +1523,28 @@ body {
     display: none;
   }
 
+  .nav-links.mobile-open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    width: 100%;
+    background: var(--bg-secondary);
+    padding: 20px 24px;
+    gap: 16px;
+    border-bottom: 1px solid var(--border-light);
+    box-shadow: var(--shadow-lg);
+    z-index: 999;
+  }
+
   .mobile-menu-btn {
     display: block;
+  }
+
+  .navbar .nav-actions .btn-primary {
+    padding: 8px 14px;
+    font-size: 0.85rem;
   }
 
   .speaking-grid, .projects-grid, .articles-grid {
@@ -1552,6 +1575,7 @@ body {
   font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.02em;
+  text-decoration: none;
   box-shadow: 0 0 15px rgba(66, 133, 244, 0.2);
   transition: var(--transition);
 }
@@ -1671,6 +1695,141 @@ body {
     grid-template-columns: 1fr;
     padding: 24px;
     gap: 24px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Contact / Email Section & Form Feedback States
+   -------------------------------------------------------------------------- */
+.btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.25fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.contact-info-card,
+.contact-form-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-md);
+}
+
+.contact-info-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.contact-info-card p {
+  color: var(--text-muted);
+  font-size: 0.94rem;
+  margin-bottom: 20px;
+}
+
+.direct-email-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  background: rgba(66, 133, 244, 0.08);
+  border: 1px solid rgba(66, 133, 244, 0.3);
+  border-radius: var(--radius-md);
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.direct-email-link {
+  color: #93c5fd;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.direct-email-link:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.contact-quick-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.form-status {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  display: none;
+}
+
+.form-status.visible {
+  display: block;
+}
+
+.form-status.success {
+  background: rgba(52, 168, 83, 0.14);
+  border: 1px solid rgba(52, 168, 83, 0.45);
+  color: #86efac;
+}
+
+.form-status.warning {
+  background: rgba(251, 188, 4, 0.12);
+  border: 1px solid rgba(251, 188, 4, 0.4);
+  color: #fde68a;
+}
+
+.form-status.info {
+  background: rgba(66, 133, 244, 0.14);
+  border: 1px solid rgba(66, 133, 244, 0.4);
+  color: #bfdbfe;
+}
+
+.form-fallback-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.honeypot-field {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .form-grid-2 {
+    grid-template-columns: 1fr;
   }
 }
 
