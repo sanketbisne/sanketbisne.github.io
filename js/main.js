@@ -173,13 +173,13 @@ function initHero3DStage() {
 
   // Interactive 3D Tech-Stack Orbit Sprites
   const orbitSpecs = [
-    { label: 'GCP', hex: '#4285F4', radius: 4.15, incl: 0.24 },
-    { label: 'GKE', hex: '#34A853', radius: 4.5, incl: -0.26 },
-    { label: 'ADK', hex: '#FBBC04', radius: 4.75, incl: 0.34 },
-    { label: 'WebMCP', hex: '#EA4335', radius: 5.05, incl: -0.2 },
-    { label: 'LangGraph', hex: '#4285F4', radius: 4.4, incl: 0.28 },
-    { label: 'vLLM', hex: '#34A853', radius: 4.85, incl: -0.32 },
-    { label: 'Terraform', hex: '#FBBC04', radius: 4.25, incl: 0.16 }
+    { label: 'GCP', hex: '#4285F4', radius: 3.55, incl: 0.24 },
+    { label: 'GKE', hex: '#34A853', radius: 3.8, incl: -0.26 },
+    { label: 'ADK', hex: '#FBBC04', radius: 4.05, incl: 0.34 },
+    { label: 'WebMCP', hex: '#EA4335', radius: 4.3, incl: -0.2 },
+    { label: 'LangGraph', hex: '#4285F4', radius: 3.7, incl: 0.28 },
+    { label: 'vLLM', hex: '#34A853', radius: 4.15, incl: -0.32 },
+    { label: 'Terraform', hex: '#FBBC04', radius: 3.65, incl: 0.16 }
   ];
 
   const isDarkTheme = () => document.documentElement.getAttribute('data-theme') === 'dark';
@@ -187,7 +187,7 @@ function initHero3DStage() {
     const tex = createOrbitBadgeTexture(spec.label, spec.hex, isDarkTheme());
     const mat = new THREE.SpriteMaterial({ map: tex, transparent: true, opacity: 0.95, depthTest: false });
     const sprite = new THREE.Sprite(mat);
-    sprite.scale.set(1.68, 0.52, 1);
+    sprite.scale.set(1.58, 0.49, 1);
     stageGroup.add(sprite);
     return { sprite, mat, spec, phase: (idx / orbitSpecs.length) * Math.PI * 2 };
   });
@@ -209,8 +209,8 @@ function initHero3DStage() {
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
     camera.updateProjectionMatrix();
-    stageGroup.position.x = w >= 992 ? 2.1 : 0;
-    stageGroup.position.y = w >= 992 ? 0.1 : 0.65;
+    stageGroup.position.x = w >= 992 ? 3.55 : 0;
+    stageGroup.position.y = w >= 992 ? 0.15 : 0.65;
     stageGroup.scale.setScalar(w < 576 ? 0.68 : w < 992 ? 0.82 : 1);
   };
   resize();
@@ -1258,14 +1258,14 @@ function initTalkFilters() {
 
 function initProjectFilters() {
   const filterButtons = document.querySelectorAll('.project-filter-btn');
-  const projectCards = document.querySelectorAll('.project-card');
-  if (!filterButtons.length || !projectCards.length) return;
+  if (!filterButtons.length) return;
 
   filterButtons.forEach(btn => {
     btn.addEventListener('click', () => {
       filterButtons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      applyCardFilter(projectCards, btn.getAttribute('data-filter'));
+      const liveCards = document.querySelectorAll('#projects-grid .project-card');
+      applyCardFilter(liveCards, btn.getAttribute('data-filter'));
     });
   });
 }
