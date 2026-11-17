@@ -3,8 +3,7 @@
  * Interactive Filtering, Modal Controls, FormSubmit Email Delivery & Micro-interactions
  */
 
-const RECIPIENT_EMAIL = 'sanketbisne@gmail.com';
-const FORMSUBMIT_ENDPOINT = `https://formsubmit.co/ajax/${RECIPIENT_EMAIL}`;
+const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajax/sanketbisne@gmail.com';
 
 document.addEventListener('DOMContentLoaded', () => {
   initThemeToggle();
@@ -12,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initTalkFilters();
   initProjectFilters();
   initSpeakerModal();
-  initCopyEmailButtons();
   initStatCounters();
   initSmoothScroll();
 });
@@ -271,16 +269,13 @@ function attachInquiryFormHandler(form) {
       `Additional Details:\n${notes || 'N/A'}\n\n` +
       `Best regards,\n${name}`;
 
-    const mailtoHref = `mailto:${RECIPIENT_EMAIL}?subject=${encodeURIComponent(subjectText)}&body=${encodeURIComponent(plainBody)}`;
-    const gmailHref = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(RECIPIENT_EMAIL)}&su=${encodeURIComponent(subjectText)}&body=${encodeURIComponent(plainBody)}`;
-
     if (submitBtn) {
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending Inquiry...';
     }
     if (statusEl) {
       statusEl.className = 'form-status visible info';
-      statusEl.textContent = `Sending your session invitation to ${RECIPIENT_EMAIL}...`;
+      statusEl.textContent = 'Sending your session invitation...';
     }
 
     try {
@@ -312,29 +307,26 @@ function attachInquiryFormHandler(form) {
         showFormStatus(
           statusEl,
           'success',
-          `Thank you, ${escapeHtml(name)}! Your invitation was sent directly to ${RECIPIENT_EMAIL}.`,
-          gmailHref,
-          mailtoHref,
-          plainBody
+          `Thank you, ${escapeHtml(name)}! Your invitation has been delivered directly to Sanket's inbox.`,
+          plainBody,
+          false
         );
       } else {
         showFormStatus(
           statusEl,
           'warning',
-          `Direct delivery could not be confirmed (${escapeHtml(data.message || 'activation or network required')}). Use one of the quick options below so your invite reaches ${RECIPIENT_EMAIL} immediately:`,
-          gmailHref,
-          mailtoHref,
-          plainBody
+          `Direct delivery could not be confirmed (${escapeHtml(data.message || 'activation or network required')}). You can copy your inquiry or reach out directly via Sessionize or LinkedIn:`,
+          plainBody,
+          true
         );
       }
     } catch (_err) {
       showFormStatus(
         statusEl,
         'warning',
-        `Could not reach the form relay from your browser. Use one of the direct options below to send your invite to ${RECIPIENT_EMAIL}:`,
-        gmailHref,
-        mailtoHref,
-        plainBody
+        'Could not reach the form relay from your browser. You can copy your inquiry or reach out directly via Sessionize or LinkedIn:',
+        plainBody,
+        true
       );
     } finally {
       if (submitBtn) {
@@ -345,15 +337,19 @@ function attachInquiryFormHandler(form) {
   });
 }
 
-function showFormStatus(statusEl, variant, message, gmailHref, mailtoHref, plainBody) {
+function showFormStatus(statusEl, variant, message, plainBody, showSocialFallbacks) {
   if (!statusEl) return;
+
+  const socialHtml = showSocialFallbacks
+    ? `<a href="https://sessionize.com/sanketbisne" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 6px 12px; font-size: 0.78rem;">Invite via Sessionize ↗</a>
+       <a href="https://www.linkedin.com/in/sanketbisne" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 6px 12px; font-size: 0.78rem;">Message on LinkedIn ↗</a>`
+    : '';
 
   statusEl.className = `form-status visible ${variant}`;
   statusEl.innerHTML = `
     <div>${message}</div>
     <div class="form-fallback-actions">
-      <a href="${gmailHref}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 6px 12px; font-size: 0.78rem;">Open in Gmail ↗</a>
-      <a href="${mailtoHref}" class="btn btn-secondary" style="padding: 6px 12px; font-size: 0.78rem;">Open Email App</a>
+      ${socialHtml}
       <button type="button" class="btn btn-secondary copy-inquiry-btn" style="padding: 6px 12px; font-size: 0.78rem;">Copy Message</button>
     </div>
   `;
@@ -362,13 +358,13 @@ function showFormStatus(statusEl, variant, message, gmailHref, mailtoHref, plain
   if (copyBtn) {
     copyBtn.addEventListener('click', async () => {
       try {
-        await navigator.clipboard.writeText(`To: ${RECIPIENT_EMAIL}\n\n${plainBody}`);
+        await navigator.clipboard.writeText(plainBody);
         copyBtn.textContent = 'Copied!';
         setTimeout(() => {
           copyBtn.textContent = 'Copy Message';
         }, 2500);
       } catch (_err) {
-        copyBtn.textContent = RECIPIENT_EMAIL;
+        copyBtn.textContent = 'Copy Failed';
       }
     });
   }
@@ -381,27 +377,6 @@ function escapeHtml(str) {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;');
-}
-
-/* --------------------------------------------------------------------------
-   Copy Email Buttons
-   -------------------------------------------------------------------------- */
-function initCopyEmailButtons() {
-  document.querySelectorAll('[data-copy-email]').forEach(btn => {
-    btn.addEventListener('click', async () => {
-      const email = btn.getAttribute('data-copy-email') || RECIPIENT_EMAIL;
-      const originalText = btn.textContent;
-      try {
-        await navigator.clipboard.writeText(email);
-        btn.textContent = 'Copied!';
-        setTimeout(() => {
-          btn.textContent = originalText;
-        }, 2000);
-      } catch (_err) {
-        window.location.href = `mailto:${email}`;
-      }
-    });
-  });
 }
 
 /* --------------------------------------------------------------------------
