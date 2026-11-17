@@ -7,6 +7,7 @@ const RECIPIENT_EMAIL = 'sanketbisne@gmail.com';
 const FORMSUBMIT_ENDPOINT = `https://formsubmit.co/ajax/${RECIPIENT_EMAIL}`;
 
 document.addEventListener('DOMContentLoaded', () => {
+  initThemeToggle();
   initNavigation();
   initTalkFilters();
   initProjectFilters();
@@ -15,6 +16,45 @@ document.addEventListener('DOMContentLoaded', () => {
   initStatCounters();
   initSmoothScroll();
 });
+
+/* --------------------------------------------------------------------------
+   Google Light / Gemini Dark Theme Toggle
+   -------------------------------------------------------------------------- */
+function initThemeToggle() {
+  const toggleBtn = document.getElementById('theme-toggle');
+  const root = document.documentElement;
+  const savedTheme = localStorage.getItem('sanket-theme');
+
+  const applyTheme = theme => {
+    if (theme === 'dark') {
+      root.setAttribute('data-theme', 'dark');
+      if (toggleBtn) {
+        toggleBtn.setAttribute('aria-label', 'Switch to Google Light theme');
+        toggleBtn.setAttribute('title', 'Switch to Google Light theme');
+        toggleBtn.innerHTML =
+          '<svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>';
+      }
+    } else {
+      root.removeAttribute('data-theme');
+      if (toggleBtn) {
+        toggleBtn.setAttribute('aria-label', 'Switch to Gemini Dark theme');
+        toggleBtn.setAttribute('title', 'Switch to Gemini Dark theme');
+        toggleBtn.innerHTML =
+          '<svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>';
+      }
+    }
+  };
+
+  applyTheme(savedTheme === 'dark' ? 'dark' : 'light');
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('sanket-theme', next);
+      applyTheme(next);
+    });
+  }
+}
 
 /* --------------------------------------------------------------------------
    Navigation & Mobile Menu
