@@ -104,38 +104,38 @@ function initHero3DStage() {
   scene.add(stageGroup);
 
   // Glassmorphic core + wireframe outer shell in Google Blue
-  const coreGeo = new THREE.IcosahedronGeometry(1.55, 2);
+  const coreGeo = new THREE.IcosahedronGeometry(1.75, 2);
   const coreMat = new THREE.MeshBasicMaterial({
     color: 0x4285f4,
     wireframe: true,
     transparent: true,
-    opacity: 0.24
+    opacity: 0.34
   });
   const coreMesh = new THREE.Mesh(coreGeo, coreMat);
   stageGroup.add(coreMesh);
 
-  const shellGeo = new THREE.IcosahedronGeometry(2.35, 1);
+  const shellGeo = new THREE.IcosahedronGeometry(2.75, 1);
   const shellMat = new THREE.MeshBasicMaterial({
     color: 0x34a853,
     wireframe: true,
     transparent: true,
-    opacity: 0.14
+    opacity: 0.22
   });
   const shellMesh = new THREE.Mesh(shellGeo, shellMat);
   stageGroup.add(shellMesh);
 
   // Dual orbital rings
   const ring1 = new THREE.Mesh(
-    new THREE.TorusGeometry(3.4, 0.014, 8, 96),
-    new THREE.MeshBasicMaterial({ color: 0x4285f4, transparent: true, opacity: 0.28 })
+    new THREE.TorusGeometry(4.1, 0.022, 8, 96),
+    new THREE.MeshBasicMaterial({ color: 0x4285f4, transparent: true, opacity: 0.38 })
   );
   ring1.rotation.x = 1.15;
   ring1.rotation.y = 0.28;
   stageGroup.add(ring1);
 
   const ring2 = new THREE.Mesh(
-    new THREE.TorusGeometry(4.15, 0.012, 8, 96),
-    new THREE.MeshBasicMaterial({ color: 0xea4335, transparent: true, opacity: 0.2 })
+    new THREE.TorusGeometry(4.95, 0.018, 8, 96),
+    new THREE.MeshBasicMaterial({ color: 0xea4335, transparent: true, opacity: 0.28 })
   );
   ring2.rotation.x = 1.95;
   ring2.rotation.y = -0.35;
@@ -143,13 +143,13 @@ function initHero3DStage() {
 
   // Google 4-color floating neural cloud points
   const googleHex = [0x4285f4, 0xea4335, 0xfbbc04, 0x34a853];
-  const nodeCount = 88;
+  const nodeCount = 110;
   const positions = new Float32Array(nodeCount * 3);
   const colors = new Float32Array(nodeCount * 3);
   for (let i = 0; i < nodeCount; i++) {
     const phi = Math.acos(1 - (2 * (i + 0.5)) / nodeCount);
     const theta = Math.PI * (1 + Math.sqrt(5)) * i;
-    const radius = 2.6 + (i % 5) * 0.48;
+    const radius = 2.8 + (i % 6) * 0.55;
     positions[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
     positions[i * 3 + 1] = radius * Math.cos(phi);
     positions[i * 3 + 2] = radius * Math.sin(phi) * Math.sin(theta);
@@ -163,31 +163,31 @@ function initHero3DStage() {
   pointsGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
   pointsGeo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
   const pointsMat = new THREE.PointsMaterial({
-    size: 0.14,
+    size: 0.2,
     vertexColors: true,
     transparent: true,
-    opacity: 0.85
+    opacity: 0.92
   });
   const nodeCloud = new THREE.Points(pointsGeo, pointsMat);
   stageGroup.add(nodeCloud);
 
   // Interactive 3D Tech-Stack Orbit Sprites
   const orbitSpecs = [
-    { label: 'GCP', hex: '#4285F4', radius: 3.45, incl: 0.22 },
-    { label: 'GKE', hex: '#34A853', radius: 3.65, incl: -0.25 },
-    { label: 'ADK', hex: '#FBBC04', radius: 3.9, incl: 0.34 },
-    { label: 'WebMCP', hex: '#EA4335', radius: 4.15, incl: -0.18 },
-    { label: 'LangGraph', hex: '#4285F4', radius: 3.75, incl: 0.28 },
-    { label: 'vLLM', hex: '#34A853', radius: 4.05, incl: -0.32 },
-    { label: 'Terraform', hex: '#FBBC04', radius: 3.55, incl: 0.15 }
+    { label: 'GCP', hex: '#4285F4', radius: 4.15, incl: 0.24 },
+    { label: 'GKE', hex: '#34A853', radius: 4.5, incl: -0.26 },
+    { label: 'ADK', hex: '#FBBC04', radius: 4.75, incl: 0.34 },
+    { label: 'WebMCP', hex: '#EA4335', radius: 5.05, incl: -0.2 },
+    { label: 'LangGraph', hex: '#4285F4', radius: 4.4, incl: 0.28 },
+    { label: 'vLLM', hex: '#34A853', radius: 4.85, incl: -0.32 },
+    { label: 'Terraform', hex: '#FBBC04', radius: 4.25, incl: 0.16 }
   ];
 
   const isDarkTheme = () => document.documentElement.getAttribute('data-theme') === 'dark';
   const orbitSprites = orbitSpecs.map((spec, idx) => {
     const tex = createOrbitBadgeTexture(spec.label, spec.hex, isDarkTheme());
-    const mat = new THREE.SpriteMaterial({ map: tex, transparent: true, opacity: 0.92, depthTest: false });
+    const mat = new THREE.SpriteMaterial({ map: tex, transparent: true, opacity: 0.95, depthTest: false });
     const sprite = new THREE.Sprite(mat);
-    sprite.scale.set(1.52, 0.48, 1);
+    sprite.scale.set(1.68, 0.52, 1);
     stageGroup.add(sprite);
     return { sprite, mat, spec, phase: (idx / orbitSpecs.length) * Math.PI * 2 };
   });
@@ -209,9 +209,9 @@ function initHero3DStage() {
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
     camera.updateProjectionMatrix();
-    stageGroup.position.x = w >= 992 ? 2.55 : 0;
-    stageGroup.position.y = w >= 992 ? -0.15 : 0.65;
-    stageGroup.scale.setScalar(w < 576 ? 0.72 : w < 992 ? 0.85 : 1);
+    stageGroup.position.x = w >= 992 ? 2.1 : 0;
+    stageGroup.position.y = w >= 992 ? 0.1 : 0.65;
+    stageGroup.scale.setScalar(w < 576 ? 0.68 : w < 992 ? 0.82 : 1);
   };
   resize();
   window.addEventListener('resize', resize, { passive: true });
@@ -257,6 +257,11 @@ function initHero3DStage() {
       spinBoost = Math.min(0.12, spinBoost + Math.min(delta, 80) * 0.00045);
     }
   }, { passive: true });
+
+  const spinBtn = document.getElementById('hero-spin-btn');
+  spinBtn?.addEventListener('click', () => {
+    spinBoost = Math.min(0.16, spinBoost + 0.085);
+  });
 
   // Pause WebGL cleanly when hero leaves viewport or tab is hidden
   let isHeroVisible = true;

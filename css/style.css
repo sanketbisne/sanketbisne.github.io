@@ -796,13 +796,15 @@ body {
 .hero-visual {
   position: relative;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
 }
 
 .visual-card {
-  background: var(--bg-card);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-xl);
   padding: 22px;
@@ -812,6 +814,10 @@ body {
   max-width: 520px;
   overflow: visible;
   z-index: 2;
+}
+
+[data-theme="dark"] .visual-card {
+  background: rgba(30, 31, 32, 0.76);
 }
 
 .hero-feature-card {
@@ -2359,17 +2365,24 @@ body {
 .ticker-dot.yellow { background: #FBBC04; }
 
 .hero-orbit-hud {
+  width: 100%;
+  max-width: 520px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
   flex-wrap: wrap;
-  margin-top: 14px;
+  margin-top: 0;
   padding: 10px 14px;
-  border-radius: 14px;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  background: var(--bg-glass);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-sm);
   font-size: 0.78rem;
+  position: relative;
+  z-index: 2;
 }
 
 .orbit-hud-left {
@@ -2378,6 +2391,29 @@ body {
   gap: 8px;
   font-family: var(--font-mono);
   color: var(--text-muted);
+}
+
+.orbit-spin-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 44px;
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card-solid);
+  color: var(--g-blue);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.orbit-spin-btn:hover {
+  border-color: var(--g-blue-brand);
+  background: var(--g-blue-soft);
+  transform: scale(1.03);
 }
 
 .orbit-hud-stack {
