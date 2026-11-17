@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-17T08:30:00Z",
+  "updated_at": "2026-11-17T09:08:44Z",
   "shipping_ticker": [
     {
       "tag": "Shipping",
@@ -206,7 +206,12 @@
       "featured": true,
       "badge_label": "★ WebMCP + ADK",
       "stars": 0,
-      "tags": ["WebMCP", "Google ADK", "Agent Runtime", "OpenTelemetry"]
+      "tags": [
+        "WebMCP",
+        "Google ADK",
+        "Agent Runtime",
+        "OpenTelemetry"
+      ]
     },
     {
       "name": "scalfod-langgraph-agentscli",
@@ -217,7 +222,12 @@
       "featured": true,
       "badge_label": "★ LangGraph + A2A",
       "stars": 0,
-      "tags": ["LangGraph", "Agents CLI", "Cloud Run", "Vertex AI Evals"]
+      "tags": [
+        "LangGraph",
+        "Agents CLI",
+        "Cloud Run",
+        "Vertex AI Evals"
+      ]
     },
     {
       "name": "vllm-gcp-cloudrun",
@@ -228,7 +238,12 @@
       "featured": false,
       "badge_label": "★ vLLM + GPU",
       "stars": 0,
-      "tags": ["vLLM", "Cloud Run GPU", "GCS FUSE", "Enterprise RAG"]
+      "tags": [
+        "vLLM",
+        "Cloud Run GPU",
+        "GCS FUSE",
+        "Enterprise RAG"
+      ]
     },
     {
       "name": "starbrew-reserve-cloudsql-saas",
@@ -239,7 +254,12 @@
       "featured": false,
       "badge_label": "★ Cloud SQL SaaS",
       "stars": 0,
-      "tags": ["Cloud Run", "Cloud SQL", "Voice AI", "Python"]
+      "tags": [
+        "Cloud Run",
+        "Cloud SQL",
+        "Voice AI",
+        "Python"
+      ]
     },
     {
       "name": "omni-spanner",
@@ -249,8 +269,13 @@
       "icon": "⚡",
       "featured": false,
       "badge_label": "★ Google I/O",
-      "stars": 0,
-      "tags": ["GKE", "Cloud Spanner", "Terraform", "Kube-Ops"]
+      "stars": 4,
+      "tags": [
+        "GKE",
+        "Cloud Spanner",
+        "Terraform",
+        "Kube-Ops"
+      ]
     },
     {
       "name": "gcs-mcp-server",
@@ -260,8 +285,13 @@
       "icon": "🤖",
       "featured": false,
       "badge_label": "★ MCP Server",
-      "stars": 0,
-      "tags": ["MCP Protocol", "GCS", "Python", "FastMCP"]
+      "stars": 2,
+      "tags": [
+        "MCP Protocol",
+        "GCS",
+        "Python",
+        "FastMCP"
+      ]
     },
     {
       "name": "adk-k8s-gcs-agent",
@@ -272,7 +302,12 @@
       "featured": false,
       "badge_label": "★ ADK Agent",
       "stars": 0,
-      "tags": ["Google ADK", "Kubernetes", "GCS", "AgentOps"]
+      "tags": [
+        "Google ADK",
+        "Kubernetes",
+        "GCS",
+        "AgentOps"
+      ]
     },
     {
       "name": "gemini-grafana-gke-observability",
@@ -282,8 +317,40 @@
       "icon": "📈",
       "featured": false,
       "badge_label": "★ Telemetry",
-      "stars": 0,
-      "tags": ["Gemini", "Grafana", "Prometheus", "GKE"]
+      "stars": 8,
+      "tags": [
+        "Gemini",
+        "Grafana",
+        "Prometheus",
+        "GKE"
+      ]
+    },
+    {
+      "name": "Ai-learning-for-all",
+      "url": "https://github.com/sanketbisne/Ai-learning-for-all",
+      "description": "This repository is for anyone who wants to start AI from scratch. Feel free to add anything open for feedback.",
+      "category": "ai-adk",
+      "icon": "✨",
+      "featured": false,
+      "badge_label": "★ Open Source",
+      "stars": 1,
+      "tags": [
+        "GitHub",
+        "Open Source"
+      ]
+    },
+    {
+      "name": "InsightFlow-agent-cli",
+      "url": "https://github.com/sanketbisne/InsightFlow-agent-cli",
+      "description": "Repository for InsightFlow-agent-cli project.",
+      "category": "ai-adk",
+      "icon": "✨",
+      "featured": false,
+      "badge_label": "★ HCL",
+      "stars": 6,
+      "tags": [
+        "HCL"
+      ]
     }
   ]
 }
