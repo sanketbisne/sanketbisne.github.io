@@ -1,0 +1,289 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-11-17T08:30:00Z",
+  "shipping_ticker": [
+    {
+      "tag": "Shipping",
+      "color": "blue",
+      "text": "Browser-Native AI Agents with WebMCP + Google ADK",
+      "href": "https://github.com/sanketbisne/adk-webmcp-storefront"
+    },
+    {
+      "tag": "New Post",
+      "color": "green",
+      "text": "Stop Scraping the DOM: WebMCP & Google ADK on Medium",
+      "href": "https://medium.com/google-cloud/stop-scraping-the-dom-build-browser-native-ai-agents-with-webmcp-and-google-adk-90593f7444d6"
+    },
+    {
+      "tag": "YouTube",
+      "color": "red",
+      "text": "Google Cloud Build the Next: Extend FastMCP servers with AI",
+      "href": "https://www.youtube.com/watch?v=jNU_7WSidB4"
+    },
+    {
+      "tag": "Agents CLI",
+      "color": "yellow",
+      "text": "scalfod-langgraph-agentscli: LangGraph + A2A on Cloud Run",
+      "href": "https://github.com/sanketbisne/scalfod-langgraph-agentscli"
+    },
+    {
+      "tag": "Live Stage",
+      "color": "blue",
+      "text": "GDE Cloud • Google I/O Connect • 100+ Global Sessions",
+      "href": "https://sessionize.com/sanketbisne"
+    }
+  ],
+  "medium": [
+    {
+      "title": "Stop Scraping the DOM: Build Browser-Native AI Agents with WebMCP & Google ADK",
+      "url": "https://medium.com/google-cloud/stop-scraping-the-dom-build-browser-native-ai-agents-with-webmcp-and-google-adk-90593f7444d6",
+      "date": "Nov 16, 2026",
+      "iso_date": "2026-11-16",
+      "platform": "Google Cloud - Community",
+      "badge": "✨ Latest • Nov 2026",
+      "badge_type": "latest",
+      "image": "https://cdn-images-1.medium.com/max/1024/1*9DSsGoN7oUueeVezzRcetg.jpeg",
+      "summary": "Replacing brittle CSS selectors with typed browser tool contracts via navigator.modelContext, declarative HTML forms, Python safety guardrails, and Cloud Agent Runtime telemetry."
+    },
+    {
+      "title": "Build a Custom MCP Server on Cloud Run and Make Gemini-CLI Work for You",
+      "url": "https://medium.com/google-cloud/build-custom-mcp-server-cloud-run-gemini-cli-4de8e2ead52a",
+      "date": "Oct 29, 2025",
+      "iso_date": "2025-10-29",
+      "platform": "Google Cloud - Community",
+      "badge": "⚡ MCP & Cloud Run",
+      "badge_type": "topic",
+      "image": "https://cdn-images-1.medium.com/max/1024/1*RdUqYgqeYzq__hQZGcpBQA.png",
+      "summary": "Turn natural language into real Google Cloud actions by building a custom Model Context Protocol (MCP) server on Cloud Run wired into Gemini CLI."
+    },
+    {
+      "title": "Part 1: Smarter Containers with Docker AI and Ask Gordon",
+      "url": "https://medium.com/@sanketbisne/part1-smarter-containers-with-docker-ai-and-ask-gordon-93434d950b49",
+      "date": "May 24, 2025",
+      "iso_date": "2025-05-24",
+      "platform": "Medium",
+      "badge": "🐳 Docker AI",
+      "badge_type": "topic",
+      "image": "https://cdn-images-1.medium.com/max/1024/1*I_Xp1Ye2b5hqeQJa1PdXvQ.png",
+      "summary": "Exploring AI-assisted container workflows, Dockerfile optimization, and interactive troubleshooting using Docker AI and Ask Gordon."
+    },
+    {
+      "title": "Automating DBT Pipelines on Google Cloud Platform",
+      "url": "https://medium.com/google-cloud/automating-dbt-pipelines-on-google-cloud-platform-%EF%B8%8F-5d7497f7b7c3",
+      "date": "May 13, 2025",
+      "iso_date": "2025-05-13",
+      "platform": "Google Cloud - Community",
+      "badge": "☁️ Data & dbt",
+      "badge_type": "topic",
+      "image": "https://cdn-images-1.medium.com/max/2048/1*CCVToB4FBEk3U4L42kdl1Q.jpeg",
+      "summary": "End-to-end walkthrough of building a fully automated data transformation pipeline using dbt, Jenkins, Kubernetes, and Google Cloud."
+    },
+    {
+      "title": "Part 1: Switching from Terraform to OpenTofu on Google Cloud",
+      "url": "https://medium.com/google-cloud/part1-switching-from-terraform-to-opentofu-and-automating-your-infrastructure-on-google-cloud-8307ac6825e0",
+      "date": "Sep 23, 2024",
+      "iso_date": "2024-09-23",
+      "platform": "Google Cloud - Community",
+      "badge": "🛠️ OpenTofu & IaC",
+      "badge_type": "topic",
+      "image": "https://cdn-images-1.medium.com/max/2240/1*hJrql84BsJwCFOkfwUXIFQ.png",
+      "summary": "Practical migration guide from Terraform to OpenTofu with automated GCP infrastructure workflows and modular state management."
+    },
+    {
+      "title": "Automating Alert Creation with Terraform Config-Driven Import in Google Cloud",
+      "url": "https://medium.com/google-cloud/automating-alert-creation-with-terraform-config-driven-import-in-google-cloud-%EF%B8%8F-1c9093ddd79f",
+      "date": "Jul 17, 2023",
+      "iso_date": "2023-07-17",
+      "platform": "Google Cloud - Community",
+      "badge": "🔔 Terraform & Alerts",
+      "badge_type": "topic",
+      "image": "https://cdn-images-1.medium.com/max/1000/0*z1b6fBihCCZdhtKD",
+      "summary": "Leveraging Terraform config-driven import blocks to bring existing Google Cloud Monitoring alerts cleanly under Infrastructure as Code."
+    }
+  ],
+  "linkedin": [
+    {
+      "id": "li-webmcp-adk-2026",
+      "tag": "Agentic Web • WebMCP",
+      "date": "Nov 2026",
+      "title": "Browser-Native AI Agents with WebMCP + Google ADK",
+      "summary": "Shared a full storefront blueprint showing how sites expose typed navigator.modelContext contracts instead of fragile DOM scraping.",
+      "url": "https://www.linkedin.com/in/sanketbisne",
+      "cta": "Read on LinkedIn"
+    },
+    {
+      "id": "li-google-build-the-next",
+      "tag": "Google Collaboration",
+      "date": "Google Cloud",
+      "title": "Build the Next: Extend FastMCP Servers with AI",
+      "summary": "Featured engineering walkthrough with Google Cloud Developers demonstrating FastMCP tool contracts in production agent workflows.",
+      "url": "https://www.linkedin.com/in/sanketbisne",
+      "cta": "Connect on LinkedIn"
+    },
+    {
+      "id": "li-devfest-baku-adk",
+      "tag": "Conference Stage",
+      "date": "GDG Baku",
+      "title": "RAG AI Agents with Google Agents CLI & ADK",
+      "summary": "Delivered a live build at DevFest Baku on packaging and shipping Cloud Run AI agents with Vertex AI Evals and A2A endpoints.",
+      "url": "https://www.linkedin.com/in/sanketbisne",
+      "cta": "View Highlights"
+    }
+  ],
+  "instagram": [
+    {
+      "id": "ig-io-connect-2026",
+      "url": "https://www.instagram.com/sanket_bisne/reel/DbTvGsWyuMI/",
+      "image": "images/instagram/ig-io-connect-2026.jpg",
+      "alt": "Speaking at Google I/O Connect 2026 on Google Cloud Spanner Omni",
+      "badge": "📌 Pinned Reel",
+      "caption": "Google I/O Connect 2026 • Cloud Spanner Omni"
+    },
+    {
+      "id": "ig-devfest-baku-video",
+      "url": "https://www.instagram.com/gdg.baku/reel/DeizqsnO6w9/",
+      "image": "images/instagram/ig-devfest-baku-video.jpg",
+      "alt": "DevFest Baku 2026 Speaker Video — RAG AI Agents with Google Agents CLI and ADK",
+      "badge": "🎥 Speaker Reel",
+      "caption": "DevFest Baku 2026 • RAG Agents with ADK"
+    },
+    {
+      "id": "ig-devfest-baku-poster",
+      "url": "https://www.instagram.com/gdg.baku/p/Ded78JMOHxv/",
+      "image": "images/instagram/ig-devfest-baku-poster.jpg",
+      "alt": "Google Developer Groups Baku Speaker Spotlight at ADA University",
+      "badge": "🎤 Conference",
+      "caption": "GDG Baku • ADA University Spotlight"
+    },
+    {
+      "id": "ig-google-cloud-apac",
+      "url": "https://www.instagram.com/sanket_bisne/reel/Ddgj_bGIHyt/",
+      "image": "images/instagram/ig-google-cloud-apac.jpg",
+      "alt": "Collaboration with Google for Developers on Google Cloud APAC YouTube channel",
+      "badge": "☁️ Google Cloud",
+      "caption": "Google Cloud APAC • MCP Collaboration"
+    },
+    {
+      "id": "ig-field-fixers-gde",
+      "url": "https://www.instagram.com/thefieldfixers/p/DdiRLbHDAnd/",
+      "image": "images/instagram/ig-field-fixers-gde.jpg",
+      "alt": "The Field Fixers feature — Sanket Bisne, Sr. Enterprise AI & Cloud Engineer, Motive & GDE",
+      "badge": "✨ Feature",
+      "caption": "Speaker Feature • Motive & Google Cloud GDE"
+    },
+    {
+      "id": "ig-nov-2026-latest",
+      "url": "https://www.instagram.com/sanket_bisne/p/Dfw_Vy5HxZm/",
+      "image": "images/instagram/ig-nov-2026-latest.jpg",
+      "alt": "Latest Instagram post by Sanket Bisne on November 15, 2026",
+      "badge": "📸 Nov 2026",
+      "caption": "Latest Moments • Nov 15, 2026"
+    },
+    {
+      "id": "ig-lake-powell-2026",
+      "url": "https://www.instagram.com/sanket_bisne/p/DfrirW8CH_v/",
+      "image": "images/instagram/ig-lake-powell-2026.jpg",
+      "alt": "Lake Powell photo carousel by Sanket Bisne on November 13, 2026",
+      "badge": "🏞️ Travel",
+      "caption": "Lake Powell Expedition • Nov 2026"
+    },
+    {
+      "id": "ig-hongkong-tram",
+      "url": "https://www.instagram.com/sanket_bisne/reel/DYsbxy6SBAb/",
+      "image": "images/instagram/ig-hongkong-tram.jpg",
+      "alt": "Victoria Peak Hong Kong Tram timelapse reel",
+      "badge": "🎬 500K+ Views",
+      "caption": "Victoria Peak Timelapse • 500K+ Views"
+    }
+  ],
+  "github": [
+    {
+      "name": "adk-webmcp-storefront",
+      "url": "https://github.com/sanketbisne/adk-webmcp-storefront",
+      "description": "Browser-native AI agents built with WebMCP (navigator.modelContext + Declarative HTML Forms), Google ADK, Python safety guardrails, and Cloud Agent Runtime telemetry.",
+      "category": "ai-adk",
+      "icon": "🌐",
+      "featured": true,
+      "badge_label": "★ WebMCP + ADK",
+      "stars": 0,
+      "tags": ["WebMCP", "Google ADK", "Agent Runtime", "OpenTelemetry"]
+    },
+    {
+      "name": "scalfod-langgraph-agentscli",
+      "url": "https://github.com/sanketbisne/scalfod-langgraph-agentscli",
+      "description": "Ship pure LangChain & LangGraph agents to Google Cloud Run using Google Agents CLI Extension System, with ReAct + Self-Critique graphs, Vertex AI Evals, A2A server, and SBOM deploy gate.",
+      "category": "ai-adk cloud-infra",
+      "icon": "🧩",
+      "featured": true,
+      "badge_label": "★ LangGraph + A2A",
+      "stars": 0,
+      "tags": ["LangGraph", "Agents CLI", "Cloud Run", "Vertex AI Evals"]
+    },
+    {
+      "name": "vllm-gcp-cloudrun",
+      "url": "https://github.com/sanketbisne/vllm-gcp-cloudrun",
+      "description": "Production blueprint for serving open-weights LLMs with vLLM on Google Cloud Run using NVIDIA L4 GPUs, GCS FUSE weight streaming, and an Enterprise RAG Dashboard.",
+      "category": "ai-adk cloud-infra",
+      "icon": "🚀",
+      "featured": false,
+      "badge_label": "★ vLLM + GPU",
+      "stars": 0,
+      "tags": ["vLLM", "Cloud Run GPU", "GCS FUSE", "Enterprise RAG"]
+    },
+    {
+      "name": "starbrew-reserve-cloudsql-saas",
+      "url": "https://github.com/sanketbisne/starbrew-reserve-cloudsql-saas",
+      "description": "Global coffee retail SaaS, Voice AI Barista, and smart context recommender built on Google Cloud Run and Cloud SQL (PostgreSQL 15).",
+      "category": "cloud-infra ai-adk",
+      "icon": "☕",
+      "featured": false,
+      "badge_label": "★ Cloud SQL SaaS",
+      "stars": 0,
+      "tags": ["Cloud Run", "Cloud SQL", "Voice AI", "Python"]
+    },
+    {
+      "name": "omni-spanner",
+      "url": "https://github.com/sanketbisne/omni-spanner",
+      "description": "Google I/O Connect showcase implementing Cloud Spanner Omni on Google Kubernetes Engine (GKE) with complete IaC configs, sample apps, and performance benchmarks.",
+      "category": "cloud-infra",
+      "icon": "⚡",
+      "featured": false,
+      "badge_label": "★ Google I/O",
+      "stars": 0,
+      "tags": ["GKE", "Cloud Spanner", "Terraform", "Kube-Ops"]
+    },
+    {
+      "name": "gcs-mcp-server",
+      "url": "https://github.com/sanketbisne/gcs-mcp-server",
+      "description": "Model Context Protocol (MCP) server integration for Google Cloud Storage. Equips LLM agents with native tools to inspect, stream, audit, and manage GCS buckets safely.",
+      "category": "ai-adk",
+      "icon": "🤖",
+      "featured": false,
+      "badge_label": "★ MCP Server",
+      "stars": 0,
+      "tags": ["MCP Protocol", "GCS", "Python", "FastMCP"]
+    },
+    {
+      "name": "adk-k8s-gcs-agent",
+      "url": "https://github.com/sanketbisne/adk-k8s-gcs-agent",
+      "description": "Production AI agent powered by Google's Agent Development Kit (ADK) designed for Kubernetes automated diagnostics, pod triage, and cloud storage artifact synchronization.",
+      "category": "ai-adk cloud-infra",
+      "icon": "🛡️",
+      "featured": false,
+      "badge_label": "★ ADK Agent",
+      "stars": 0,
+      "tags": ["Google ADK", "Kubernetes", "GCS", "AgentOps"]
+    },
+    {
+      "name": "gemini-grafana-gke-observability",
+      "url": "https://github.com/sanketbisne/gemini-grafana-gke-observability",
+      "description": "End-to-end Kubernetes observability stack deploying Prometheus, Grafana, and an MCP agent powered by Gemini for conversational infrastructure querying and triage.",
+      "category": "observability",
+      "icon": "📈",
+      "featured": false,
+      "badge_label": "★ Telemetry",
+      "stars": 0,
+      "tags": ["Gemini", "Grafana", "Prometheus", "GKE"]
+    }
+  ]
+}

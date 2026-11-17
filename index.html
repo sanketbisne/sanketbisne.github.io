@@ -127,7 +127,7 @@
             Featured on Google Cloud's <strong>Build the Next</strong> series: <em>"Extend FastMCP servers with AI"</em>
           </span>
         </div>
-        <a href="https://www.youtube.com/watch?v=jNU_7WSidB4" target="_blank" rel="noopener noreferrer" class="btn-spotlight">
+        <a href="https://www.youtube.com/watch?v=jNU_7WSidB4" target="_blank" rel="noopener noreferrer" class="btn-spotlight btn-magnetic">
           Watch on YouTube ↗
         </a>
       </div>
@@ -163,11 +163,11 @@
           </p>
 
           <div class="hero-ctas">
-            <a href="#speaking" class="btn btn-primary">
+            <a href="#speaking" class="btn btn-primary btn-magnetic">
               Explore Speaking Sessions
               <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </a>
-            <a href="#contact" class="btn btn-secondary">
+            <a href="#contact" class="btn btn-secondary btn-magnetic">
               Invite / Email Me →
             </a>
           </div>
@@ -195,9 +195,26 @@
               <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
             </a>
           </div>
+
+          <!-- Live Shipping Status Ticker -->
+          <div class="hero-ticker" aria-label="Currently building and shipping updates">
+            <span class="hero-ticker-label">Shipping</span>
+            <div class="hero-ticker-viewport">
+              <div class="ticker-track" id="hero-ticker-track">
+                <a href="https://github.com/sanketbisne/adk-webmcp-storefront" target="_blank" rel="noopener noreferrer" class="ticker-item"><span class="ticker-dot blue"></span>Browser-Native AI Agents with WebMCP + Google ADK</a>
+                <a href="https://medium.com/google-cloud/stop-scraping-the-dom-build-browser-native-ai-agents-with-webmcp-and-google-adk-90593f7444d6" target="_blank" rel="noopener noreferrer" class="ticker-item"><span class="ticker-dot green"></span>New on Medium: Stop Scraping the DOM (WebMCP)</a>
+                <a href="https://www.youtube.com/watch?v=jNU_7WSidB4" target="_blank" rel="noopener noreferrer" class="ticker-item"><span class="ticker-dot red"></span>Google Cloud Build the Next: FastMCP + AI</a>
+                <a href="https://github.com/sanketbisne/scalfod-langgraph-agentscli" target="_blank" rel="noopener noreferrer" class="ticker-item"><span class="ticker-dot yellow"></span>scalfod-langgraph-agentscli: LangGraph + A2A on Cloud Run</a>
+                <a href="https://github.com/sanketbisne/adk-webmcp-storefront" target="_blank" rel="noopener noreferrer" class="ticker-item" aria-hidden="true"><span class="ticker-dot blue"></span>Browser-Native AI Agents with WebMCP + Google ADK</a>
+                <a href="https://medium.com/google-cloud/stop-scraping-the-dom-build-browser-native-ai-agents-with-webmcp-and-google-adk-90593f7444d6" target="_blank" rel="noopener noreferrer" class="ticker-item" aria-hidden="true"><span class="ticker-dot green"></span>New on Medium: Stop Scraping the DOM (WebMCP)</a>
+                <a href="https://www.youtube.com/watch?v=jNU_7WSidB4" target="_blank" rel="noopener noreferrer" class="ticker-item" aria-hidden="true"><span class="ticker-dot red"></span>Google Cloud Build the Next: FastMCP + AI</a>
+                <a href="https://github.com/sanketbisne/scalfod-langgraph-agentscli" target="_blank" rel="noopener noreferrer" class="ticker-item" aria-hidden="true"><span class="ticker-dot yellow"></span>scalfod-langgraph-agentscli: LangGraph + A2A on Cloud Run</a>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <!-- Hero Visual Card: Featured Video Centerpiece -->
+        <!-- Hero Visual Card: Featured Video Centerpiece + 3D Orbit HUD -->
         <div class="hero-visual">
           <div class="visual-card hero-feature-card" data-tilt data-tilt-max="4">
             <div class="floating-badge badge-top">
@@ -249,6 +266,21 @@
               <span>Watch Session Live</span>
             </div>
           </div>
+
+          <div class="hero-orbit-hud" aria-label="Interactive 3D Tech-Stack Orbit status">
+            <div class="orbit-hud-left">
+              <span>3D Orbit • Drag or Scroll</span>
+            </div>
+            <div class="orbit-hud-stack">
+              <span class="orbit-chip">GCP</span>
+              <span class="orbit-chip">GKE</span>
+              <span class="orbit-chip">ADK</span>
+              <span class="orbit-chip">WebMCP</span>
+              <span class="orbit-chip">LangGraph</span>
+              <span class="orbit-chip">vLLM</span>
+              <span class="orbit-chip">Terraform</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -265,7 +297,7 @@
         </p>
       </div>
 
-      <div class="articles-grid">
+      <div class="articles-grid" id="articles-grid">
         <!-- Article 1 (Latest - Nov 2026) -->
         <a href="https://medium.com/google-cloud/stop-scraping-the-dom-build-browser-native-ai-agents-with-webmcp-and-google-adk-90593f7444d6" target="_blank" rel="noopener noreferrer" class="article-card" data-tilt data-reveal>
           <div class="article-thumb-container">
@@ -382,9 +414,52 @@
       </div>
 
       <div class="articles-cta">
-        <a href="https://medium.com/@sanketbisne" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+        <a href="https://medium.com/@sanketbisne" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-magnetic">
           View All Articles on Medium (@sanketbisne) ↗
         </a>
+      </div>
+
+      <!-- Automated LinkedIn Highlights Feed -->
+      <div class="linkedin-strip" data-reveal>
+        <div class="linkedin-strip-header">
+          <div class="linkedin-strip-title">
+            <svg width="20" height="20" fill="#0A66C2" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28z"/></svg>
+            <span>Latest LinkedIn Highlights</span>
+            <span class="sync-live-pill" id="feeds-sync-status">Auto-Sync Active</span>
+          </div>
+          <a href="https://www.linkedin.com/in/sanketbisne" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="font-size: 0.8rem; padding: 8px 14px;">
+            Connect on LinkedIn ↗
+          </a>
+        </div>
+        <div class="linkedin-grid" id="linkedin-grid">
+          <a href="https://www.linkedin.com/in/sanketbisne" target="_blank" rel="noopener noreferrer" class="linkedin-card bento-card" data-tilt>
+            <div class="linkedin-card-meta">
+              <span class="linkedin-card-tag">Agentic Web • WebMCP</span>
+              <span>Nov 2026</span>
+            </div>
+            <h3 class="linkedin-card-title">Browser-Native AI Agents with WebMCP + Google ADK</h3>
+            <p class="linkedin-card-desc">Shared a full storefront blueprint showing how sites expose typed navigator.modelContext contracts instead of fragile DOM scraping.</p>
+            <span class="linkedin-card-cta">Read on LinkedIn →</span>
+          </a>
+          <a href="https://www.linkedin.com/in/sanketbisne" target="_blank" rel="noopener noreferrer" class="linkedin-card bento-card" data-tilt>
+            <div class="linkedin-card-meta">
+              <span class="linkedin-card-tag">Google Collaboration</span>
+              <span>Google Cloud</span>
+            </div>
+            <h3 class="linkedin-card-title">Build the Next: Extend FastMCP Servers with AI</h3>
+            <p class="linkedin-card-desc">Featured engineering walkthrough with Google Cloud Developers demonstrating FastMCP tool contracts in production agent workflows.</p>
+            <span class="linkedin-card-cta">Connect on LinkedIn →</span>
+          </a>
+          <a href="https://www.linkedin.com/in/sanketbisne" target="_blank" rel="noopener noreferrer" class="linkedin-card bento-card" data-tilt>
+            <div class="linkedin-card-meta">
+              <span class="linkedin-card-tag">Conference Stage</span>
+              <span>GDG Baku</span>
+            </div>
+            <h3 class="linkedin-card-title">RAG AI Agents with Google Agents CLI &amp; ADK</h3>
+            <p class="linkedin-card-desc">Delivered a live build at DevFest Baku on packaging and shipping Cloud Run AI agents with Vertex AI Evals and A2A endpoints.</p>
+            <span class="linkedin-card-cta">View Highlights →</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -472,7 +547,7 @@
             Follow on Instagram (@sanket_bisne) ↗
           </a>
         </div>
-        <div class="photo-gallery-grid">
+        <div class="photo-gallery-grid" id="instagram-grid">
           <a href="https://www.instagram.com/sanket_bisne/reel/DbTvGsWyuMI/" target="_blank" rel="noopener noreferrer" class="photo-item">
             <span class="photo-item-badge">📌 Pinned Reel</span>
             <img src="images/instagram/ig-io-connect-2026.jpg" alt="Speaking at Google I/O Connect 2026 on Google Cloud Spanner Omni" class="photo-item-img" loading="lazy">
@@ -941,7 +1016,7 @@
       </div>
 
       <!-- Projects Grid -->
-      <div class="projects-grid">
+      <div class="projects-grid" id="projects-grid">
         <!-- Project 1 (Latest - Bento Featured) -->
         <div data-tilt data-reveal class="project-card bento-card bento-featured" data-category="ai-adk">
           <div class="project-top">
@@ -1465,8 +1540,59 @@
     <a href="#speaker-modal" class="dock-btn dock-primary open-speaker-modal" data-topic="General Keynote">Invite</a>
   </nav>
 
-  <!-- Three.js WebGL (CDN, Zero-Build) & Main JavaScript -->
+  <!-- WebMCP Live Sandbox Floating Pill & Drawer -->
+  <button type="button" class="webmcp-fab" id="webmcp-fab" aria-expanded="false" aria-controls="webmcp-drawer" title="Inspect navigator.modelContext tools exposed by this page">
+    <span class="webmcp-fab-dot" aria-hidden="true"></span>
+    <span>WebMCP Live</span>
+    <span class="webmcp-fab-badge" id="webmcp-mode-badge">4 tools</span>
+  </button>
+
+  <div class="webmcp-drawer-backdrop" id="webmcp-drawer-backdrop"></div>
+  <aside class="webmcp-drawer" id="webmcp-drawer" role="dialog" aria-modal="true" aria-labelledby="webmcp-drawer-heading">
+    <div class="webmcp-drawer-head">
+      <div class="webmcp-drawer-title">
+        <strong id="webmcp-drawer-heading">WebMCP Live Tool Sandbox</strong>
+        <span id="webmcp-context-status">navigator.modelContext • checking runtime...</span>
+      </div>
+      <button type="button" class="webmcp-close-btn" id="webmcp-close-btn" aria-label="Close WebMCP Sandbox">✕</button>
+    </div>
+    <div class="webmcp-drawer-body">
+      <p class="webmcp-intro">
+        This site registers live <code>navigator.modelContext</code> tool contracts so browser AI agents can query Sanket's talks, repositories, and speaker availability directly without DOM scraping.
+      </p>
+
+      <div class="webmcp-tool-list" id="webmcp-tool-list">
+        <button type="button" class="webmcp-tool-btn active" data-tool="get_speaker_profile">
+          <strong>get_speaker_profile()</strong>
+          <span>Returns GDE role, bio highlights, stats, and speaking availability.</span>
+        </button>
+        <button type="button" class="webmcp-tool-btn" data-tool="search_projects">
+          <strong>search_projects({ query })</strong>
+          <span>Queries open-source WebMCP, ADK, LangGraph, vLLM, and GKE repositories.</span>
+        </button>
+        <button type="button" class="webmcp-tool-btn" data-tool="search_talks">
+          <strong>search_talks({ query })</strong>
+          <span>Searches keynote talks, workshops, and conference sessions.</span>
+        </button>
+        <button type="button" class="webmcp-tool-btn" data-tool="open_speaker_invite">
+          <strong>open_speaker_invite({ topic })</strong>
+          <span>Opens the FormSubmit speaker booking modal pre-filled with a topic.</span>
+        </button>
+      </div>
+
+      <div class="webmcp-query-row">
+        <input type="text" class="webmcp-query-input" id="webmcp-query-input" value="WebMCP" placeholder="Optional query or topic..." aria-label="WebMCP tool query argument">
+        <button type="button" class="webmcp-run-btn" id="webmcp-run-btn">Run Tool</button>
+      </div>
+
+      <pre class="webmcp-output" id="webmcp-output" aria-live="polite">Click "Run Tool" or any contract above to execute via navigator.modelContext.</pre>
+    </div>
+  </aside>
+
+  <!-- Three.js WebGL + GSAP ScrollTrigger (CDN, Zero-Build) & Main JavaScript -->
   <script src="https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>

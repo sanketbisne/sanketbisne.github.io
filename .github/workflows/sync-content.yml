@@ -1,0 +1,94 @@
+name: Sync Portfolio Content
+
+on:
+  schedule:
+    - cron: '0 */3 * * *'
+  repository_dispatch:
+    types: [new-post]
+  workflow_dispatch:
+    inputs:
+      linkedin_title:
+        description: 'Optional new LinkedIn post title'
+        required: false
+        type: string
+      linkedin_url:
+        description: 'Optional LinkedIn post permalink (https://...)'
+        required: false
+        type: string
+      linkedin_summary:
+        description: 'Optional short summary (1-2 sentences)'
+        required: false
+        type: string
+      linkedin_tag:
+        description: 'Optional highlight tag (e.g. Speaking, Agentic AI)'
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-portfolio-content
+  cancel-in-progress: true
+
+jobs:
+  sync-feeds:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Sync Medium, GitHub, Instagram & LinkedIn feeds
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          DISPATCH_PAYLOAD: ${{ toJson(github.event.client_payload) }}
+          INPUT_LI_TITLE: ${{ inputs.linkedin_title }}
+          INPUT_LI_URL: ${{ inputs.linkedin_url }}
+          INPUT_LI_SUMMARY: ${{ inputs.linkedin_summary }}
+          INPUT_LI_TAG: ${{ inputs.linkedin_tag }}
+        run: |
+          python3 - <<'PY'
+          import json, os, subprocess, sys
+
+          payload = {}
+          raw_dispatch = os.environ.get("DISPATCH_PAYLOAD", "").strip()
+          if raw_dispatch and raw_dispatch != "null":
+              try:
+                  parsed = json.loads(raw_dispatch)
+                  if isinstance(parsed, dict) and parsed.get("title"):
+                      payload = parsed
+              except json.JSONDecodeError:
+                  pass
+
+          if not payload and os.environ.get("INPUT_LI_TITLE", "").strip():
+              payload = {
+                  "title": os.environ["INPUT_LI_TITLE"].strip(),
+                  "url": os.environ.get("INPUT_LI_URL", "").strip() or "https://www.linkedin.com/in/sanketbisne",
+                  "summary": os.environ.get("INPUT_LI_SUMMARY", "").strip(),
+                  "tag": os.environ.get("INPUT_LI_TAG", "").strip() or "LinkedIn Highlight",
+              }
+
+          env = os.environ.copy()
+          if payload:
+              env["LINKEDIN_PAYLOAD"] = json.dumps(payload)
+
+          raise SystemExit(subprocess.call([sys.executable, "scripts/sync_feeds.py"], env=env))
+          PY
+
+      - name: Commit and push updated feeds
+        run: |
+          if [ -z "$(git status --porcelain data/feeds.json images/instagram)" ]; then
+            echo "No content feed changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/feeds.json images/instagram
+          git commit -m "chore(sync): update Medium, GitHub & social feeds"
+          git push
