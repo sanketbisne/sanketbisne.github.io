@@ -654,10 +654,12 @@ function initWebMcpSandbox() {
       const q = String(args.query || '').trim().toLowerCase();
       const cards = Array.from(document.querySelectorAll('#speaking .talk-card'));
       const matches = cards.map((card) => ({
-        title: card.querySelector('h3, .talk-title')?.textContent?.trim() || '',
-        event: card.querySelector('.talk-event, .talk-badge')?.textContent?.trim() || '',
-        summary: card.querySelector('.talk-desc, p')?.textContent?.trim() || ''
-      })).filter((t) => t.title && (!q || `${t.title} ${t.event} ${t.summary}`.toLowerCase().includes(q)));
+        title: card.querySelector('.talk-title, h3')?.textContent?.trim() || '',
+        event: card.querySelector('.talk-event-badge, .talk-thumb-badge')?.textContent?.trim() || '',
+        date: card.querySelector('.talk-date')?.textContent?.trim() || '',
+        summary: card.querySelector('.talk-desc, p')?.textContent?.trim() || '',
+        tags: Array.from(card.querySelectorAll('.talk-tags .tag')).map((t) => t.textContent.trim())
+      })).filter((t) => t.title && (!q || `${t.title} ${t.event} ${t.summary} ${t.tags.join(' ')}`.toLowerCase().includes(q)));
       return { query: q || '*', count: matches.length, talks: matches.slice(0, 6) };
     },
     open_speaker_invite: (args = {}) => {
@@ -701,7 +703,7 @@ function initWebMcpSandbox() {
     }
   ];
 
-  // Register on native Chrome WebMCP (navigator.modelContext) when available, else clean polyfill
+  // Register on native Chrome WebMCP (navigator.modelContext) when available, else compliant polyfill
   let nativeWebMcp = false;
   try {
     if (window.navigator.modelContext && typeof window.navigator.modelContext.registerTool === 'function') {
@@ -718,7 +720,17 @@ function initWebMcpSandbox() {
         configurable: true,
         value: {
           listTools: () => Array.from(registry.values()).map(({ name, description, inputSchema }) => ({ name, description, inputSchema })),
-          registerTool: (def) => registry.set(def.name, def),
+          registerTool: (def) => {
+            if (def && def.name) registry.set(def.name, def);
+          },
+          unregisterTool: (name) => registry.delete(name),
+          provideContext: (ctx = {}) => {
+            registry.clear();
+            (ctx.tools || []).forEach((def) => {
+              if (def && def.name) registry.set(def.name, def);
+            });
+          },
+          clearContext: () => registry.clear(),
           callTool: async (name, args) => {
             const tool = registry.get(name);
             if (!tool) throw new Error(`Unknown WebMCP tool: ${name}`);
@@ -732,7 +744,7 @@ function initWebMcpSandbox() {
   if (statusEl) {
     statusEl.textContent = nativeWebMcp
       ? 'navigator.modelContext • Native Chrome WebMCP Active'
-      : 'navigator.modelContext • Interactive Polyfill Ready';
+      : 'navigator.modelContext • Interactive Polyfill Active';
   }
 
   let activeTool = 'get_speaker_profile';
@@ -742,13 +754,17 @@ function initWebMcpSandbox() {
     const argObj = activeTool === 'open_speaker_invite' ? { topic: queryVal } : { query: queryVal };
     try {
       let result;
+      const toolDef = toolDefinitions.find((t) => t.name === activeTool);
       if (window.navigator.modelContext && typeof window.navigator.modelContext.callTool === 'function') {
         const res = await window.navigator.modelContext.callTool(activeTool, argObj);
+        result = res?.content?.[0]?.text ? JSON.parse(res.content[0].text) : res;
+      } else if (toolDef) {
+        const res = await toolDef.execute(argObj);
         result = res?.content?.[0]?.text ? JSON.parse(res.content[0].text) : res;
       } else {
         result = toolHandlers[activeTool](argObj);
       }
-      outputEl.textContent = JSON.stringify({ tool: activeTool, args: argObj, result }, null, 2);
+      outputEl.textContent = JSON.stringify({ tool: activeTool, nativeWebMcp, args: argObj, result }, null, 2);
     } catch (err) {
       outputEl.textContent = JSON.stringify({ tool: activeTool, error: String(err) }, null, 2);
     }
